@@ -48,4 +48,20 @@ class DemoController extends Controller {
         return Product::pluck( 'price', 'title' );
     }
 
+    // Increment & Decrement
+    public function increDecrement() {
+        return Product::where( 'id', 1 )->increment( 'price', 100 );
+        // return Product::where( 'id', 1 )->increment( 'price' );
+        // return Product::where( 'id', 1 )->decrement( 'price', 100 );
+    }
+
+    // Aggregates
+    public function aggregate() {
+        return Product::sum( 'price' );
+        // return Product::avg( 'price' );
+        // return Product::max( 'price' );
+        // return Product::min( 'price' );
+        // return Product::count( 'price' );
+    }
+
 }
