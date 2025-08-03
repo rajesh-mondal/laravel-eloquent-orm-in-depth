@@ -18,3 +18,7 @@ Route::get( '/aggregate', [DemoController::class, 'aggregate'] );
 Route::get( '/select', [DemoController::class, 'select'] );
 Route::get( '/where', [DemoController::class, 'whereClause'] );
 Route::get( '/advance-where', [DemoController::class, 'advanceWhere'] );
+
+Route::get( '/orderBy', [DemoController::class, 'orderBy'] );
+Route::get( '/groupBy', [DemoController::class, 'groupHaving'] );
+Route::get( '/paginate', [DemoController::class, 'paginate'] );

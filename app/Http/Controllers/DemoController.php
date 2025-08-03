@@ -93,4 +93,33 @@ class DemoController extends Controller {
         // return Product::whereTime( 'updated_at', '04:21:17' )->get();
         // return Product::whereColumn( 'updated_at', '>', 'created_at' )->get();
     }
+
+    // Ordering
+    public function orderBy() {
+        // return Product::orderBy( 'price' )->get();
+        return Product::orderBy( 'price', 'desc' )->get();
+        // return Brand::inRandomOrder()->first();
+        // return Brand::latest()->first();
+        // return Brand::oldest()->first();
+    }
+
+    // Grouping, Limit
+    public function groupHaving() {
+        // return Product::groupBy( 'price' )->get();
+        return Product::groupBy( 'price' )
+            ->having( 'price', '>', 2000 )
+            ->get();
+        // return Product::skip( 10 )->take( 1 )->get();
+    }
+
+    // Paginate
+    public function paginate() {
+        // return Product::simplePaginate( 2 );
+        // return Product::paginate( 2 );
+        return Product::paginate(
+            $perPage = 10,
+            $columns = ['*'],
+            $pageName = 'ItemNumber',
+        );
+    }
 }
