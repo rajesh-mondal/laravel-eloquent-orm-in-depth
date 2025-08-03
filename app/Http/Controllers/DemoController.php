@@ -64,4 +64,33 @@ class DemoController extends Controller {
         // return Product::count( 'price' );
     }
 
+    // Select Clause
+    public function select() {
+        // return Product::select( 'title', 'price', 'star' )->get();
+        return Product::select( 'title' )->distinct()->get();
+    }
+
+    // Basic Where Clauses
+    public function whereClause() {
+        return Product::where( 'price', '=', '1000' )->get();
+        // return Product::where( 'price', '>', '2000' )->get();
+        // return Product::where( 'price', '!=', '2000' )->get();
+        // return Product::where( 'title', 'LIKE', '%New%' )->get();
+        // return Product::where( 'title', 'NOT LIKE', '%New%' )->get();
+    }
+
+    // Advance Where Clauses
+    public function advanceWhere() {
+        return Product::whereBetween( 'price', [1, 1000] )->get();
+        // return Product::whereNotBetween( 'price', [1, 1000] )->get();
+        // return Product::whereIn( 'price', [1, 1000] )->get();
+        // return Product::whereNull( 'price' )->get();
+        // return Product::whereNotNull( 'price' )->get();
+        // return Product::whereDate( 'updated_at', '2023-12-20' )->get();
+        // return Product::whereMonth( 'updated_at', '12' )->get();
+        // return Product::whereDay( 'updated_at', '20' )->get();
+        // return Product::whereYear( 'updated_at', '2023' )->get();
+        // return Product::whereTime( 'updated_at', '04:21:17' )->get();
+        // return Product::whereColumn( 'updated_at', '>', 'created_at' )->get();
+    }
 }
